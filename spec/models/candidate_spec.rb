@@ -34,8 +34,8 @@ RSpec.describe Candidate, :type => :model do
     # A Combination of any numbers, spaces, hyphes(-) and min length of 6 and max length of 12 excluding spaces
     it { should validate_presence_of :phone }
     it { should allow_value('9880123123').for(:phone )}
-    it { should allow_value('9880 123 123').for(:phone )}
-    it { should allow_value('9880-123-123').for(:phone )}
+    it { should_not allow_value('9880 123 123').for(:phone )}
+    it { should_not allow_value('9880-123-123').for(:phone )}
     it { should_not allow_value('12343').for(:phone )}
     it { should_not allow_value('1234 1234 1234 1234').for(:phone )}
 
@@ -58,11 +58,6 @@ RSpec.describe Candidate, :type => :model do
     it { should_not allow_value("x"*129).for(:native_city )}
 
     # FIXME - Check min length and max length
-    it { should validate_presence_of :skills }
-    it { should_not allow_value('CC').for(:skills )}
-    it { should_not allow_value("x"*513).for(:skills )}
-
-    it { should validate_presence_of :resume }
   end
 
   context "Class Methods" do

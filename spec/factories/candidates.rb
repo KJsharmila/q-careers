@@ -4,9 +4,9 @@ FactoryGirl.define do
   sequence(:email) {|n| "candidate.#{n}@domain.com" }
 
   factory :candidate do
-    name
-    email
-    phone "910 121 4242"
+    name "Nayana"
+    email "nayana@gmail.com"
+    phone "9101214242"
     current_city "Mysore"
     native_city "Davangere"
     skills "C, C++, Java, HTML5, CSS3"
